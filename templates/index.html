@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Virtual Fitone</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">Virtual Fittone</div>
+        <form action="/" method="POST">
+            <div class="form">
+                <div class="inputfield">
+                    <label for="Chest">Chest (Inch)</label>
+                    <input class="input" type="text" name="Chest" required>
+                </div>
+                <div class="inputfield">
+                    <label for="Shoulder">Shoulder (Inch)</label>
+                    <input class="input" type="text" name="Shoulder" required>
+                </div>
+                <div class="inputfield">
+                  <label for="Length">Length (Inch)</label>
+                  <input class="input" type="text" name="Length" required>
+              </div>
+
+              <div class="inputfield">
+                <label for="Brand">Brand Name</label>
+                <div class = "custom_select">
+                    <select name="brandname" id="brandname">
+                        <option value="" selected hidden>Select</option>
+                        <option value="Brand Name_Robato">Robato</option>
+                       
+                    </select> 
+                </div>
+            </div>
+
+
+                <div class="inputfield">
+                    <label for="Type">Type</label>
+                    <div class = "custom_select">
+                        <select name="Type" id="Type">
+                            <option value="" selected hidden>Select</option>
+                            <option value="Type_slim fit">Slim Fit</option>
+                            <option value="Type_trim fit">Trim Fit</option>               
+                        </select>
+                    </div>
+                </div>
+               
+                <div class="inputfield">
+                    <input class="btn" type="submit" value="SHOW">
+                </div>
+            </div>
+        </form>
+
+        <div class="result">
+            {% if pred_value != 0 %}
+            <p>Reccomonded size : is best size!! {{pred_value}}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
