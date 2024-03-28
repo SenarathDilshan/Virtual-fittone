@@ -8,12 +8,12 @@ import pickle
 
 app = Flask(__name__)
 
-#def prediction(lst):
-    #filename = './model/predictor.pickle'
-    #with open(filename, 'rb') as file:
-        #model = pickle.load(file)
-    #pred_value = model.predict([lst])
-    #return pred_value 
+def prediction(lst):
+    filename = 'model\predictor.pickle'
+    with open(filename, 'rb') as file:
+        model = pickle.load(file)
+    pred_value = model.predict([lst])
+    return pred_value 
 
 
 @app.route('/', methods=['POST','GET'])
@@ -51,10 +51,10 @@ def index():
 
     print(feature_list)
      
-    #pred = prediction(feature_list)
-    #print(pred)
+    pred = prediction(feature_list)
+    print(f"Prediction: {pred}")
    
   return render_template("index.html")
 
-if __name__ == '__main__':
-  app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
